@@ -20,7 +20,14 @@ st.write("Upload a PDF document, ask questions, and get precise answers along wi
 # ==========================================
 # ENTER YOUR ACTUAL GEMINI API KEY HERE:
 # ==========================================
-DIRECT_API_KEY = "AQ.Ab8RN6JdpRMDLhexAhdA5JLH8_c8qeoYMdZds6hqWAaESxH6sw"
+# Replace DIRECT_API_KEY with st.secrets
+google_api_key = st.secrets["GOOGLE_API_KEY"]
+
+llm = ChatGoogleGenerativeAI(
+    model="gemini-1.5-flash",  # Update to a valid model name
+    google_api_key=google_api_key,
+    temperature=0,
+)
 
 # Sidebar for File Upload
 with st.sidebar:
