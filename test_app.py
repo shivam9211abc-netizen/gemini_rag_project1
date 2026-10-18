@@ -74,7 +74,7 @@ if uploaded_file is not None:
 
     llm = ChatGoogleGenerativeAI(
         model="gemini-3.8-flash",
-        google_api_key=google_api_key,,
+        google_api_key=google_api_key,
         temperature=0
     )
 
