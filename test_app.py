@@ -21,7 +21,14 @@ st.write("Upload a PDF document, ask questions, and get precise answers along wi
 # ENTER YOUR ACTUAL GEMINI API KEY HERE:
 # ==========================================
 # Replace DIRECT_API_KEY with st.secrets
-google_api_key = st.secrets["GOOGLE_API_KEY"]
+try:
+  google_api_key = st.secrets["GOOGLE_API_KEY"]
+except Exception:
+  st.error(
+      "🚨 GOOGLE_API_KEY is missing from Streamlit Secrets. Please add it in"
+      " your app settings."
+  )
+  st.stop()
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-flash",  # Update to a valid model name
